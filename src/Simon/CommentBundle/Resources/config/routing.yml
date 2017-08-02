@@ -1,0 +1,3 @@
+simon_comment_homepage:
+    path:     /
+    defaults: { _controller: SimonCommentBundle:Default:index }

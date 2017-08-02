@@ -1,0 +1,51 @@
+homepage:
+    path:     /
+    defaults: { _controller: SimonPediBundle:Display:index }
+info:
+    path: /info
+    defaults: { _controller: SimonPediBundle:Display:info }
+mapinfo:
+    path: /map
+    defaults: { _controller:SimonPediBundle:Display:map }
+view:
+    path: /advert/{id}
+    defaults: { _controller:SimonPediBundle:Display:view}
+    requirements:
+        id: \d+
+adminview:
+    path: /view
+    defaults: { _controller:SimonPediBundle:Display:viewAdmin}
+subscribe:
+    path: /subscribe
+    defaults: { _controller:SimonPediBundle:Advert:subscribe }
+listadvert:
+    path: /listadvert
+    defaults: { _controller:SimonPediBundle:Advert:listAdvert}
+editadvert:
+    path: /view/edit
+    defaults: { _controller:SimonPediBundle:Advert:editAdvert}
+deleteadvert:
+    path: /delete/{id}
+    defaults: { _controller:SimonPediBundle:Advert:deleteAdvert}
+    requirements:
+        id: \d+
+deleteplanning:
+    path: /delete
+    defaults: { _controller:SimonPediBundle:Planning:unsubscribe}
+planning:
+    path: /planning/{id}
+    defaults: { _controller:SimonPediBundle:Planning:view }
+    requirements:
+        id: \d+
+planningsub:
+    path: /planning/subscribe{id}
+    defaults: { _controller:SimonPediBundle:Planning:subscribe}
+    requirements:
+        id: \d+
+geometry:
+   path: /geometry
+   defaults: { _controller:SimonPediBundle:Display:userGeometry}
+   methods: [get]
+   
+   
+

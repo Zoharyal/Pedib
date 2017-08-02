@@ -1,0 +1,26 @@
+body
+{
+    padding-top:50px;
+}
+#map {
+    height:80%;
+}
+.jumbotron
+{
+    width:100%;
+    height:50%;
+    background-image: url(../img/school.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#schooltext
+{
+    font-family: 'Indie Flower', cursive;
+    font-size: 50px;
+    color: #ff0000;
+
+}
+.video
+{
+    padding-top: 50px;
+}

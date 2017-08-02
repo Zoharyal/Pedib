@@ -1,0 +1,5 @@
+simon_user_homepage:
+    path:     /
+    defaults: { _controller: SimonUserBundle:Default:index }
+
+    

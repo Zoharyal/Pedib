@@ -1,0 +1,3 @@
+services:
+  simon_pedi.serializer:
+    class: Simon\PediBundle\Serializer\SimonSerializer

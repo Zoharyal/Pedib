@@ -1,0 +1,15 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="row">
+    <div class="col-md-6 well">
+        <div class="fos_user_user_show">
+            <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+            <h4>Contact : </h4>
+            <p> E-mail : {{user.email}} </p>
+            <p> Téléphone : {{user.phone}}</p>
+            <h4>Addresse : </h4>
+            <p> {{user.address}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Ajouter planning + annonce + upload avatar -->

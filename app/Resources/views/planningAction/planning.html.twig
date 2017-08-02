@@ -1,0 +1,59 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<h2>Planning de {{app.user.name}}</h2>
+<div class="row">
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Lundi</th>
+                        <th>Mardi</th>
+                        <th>Mercredi</th>
+                        <th>Jeudi</th>
+                        <th>Vendredi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Responsable</th>
+                        {% for i in 1..5 %}
+                        {% set assigned_user = null %}
+                        {% for user in users if user.planningday == i%}
+                            {% set assigned_user = user %}
+                        {% endfor %}
+                        <td>
+                        {% if not assigned_user is null %}
+                        <a href="{{path('fos_user_profile_show_name', {'username':assigned_user.username})}}">  {{assigned_user.name}} {{assigned_user.lastname}}</a>
+                        {% endif %}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        {% for i in 1..5 %}
+                        {% set assigned_user = null %}
+                        {% for user in users if user.planningday == i%}
+                            {% set assigned_user = user %}
+                        {% endfor %}
+                        <td>
+                        {% if not assigned_user is null %}
+                            {{assigned_user.planningcontent}} 
+                        {% endif %}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    
+                </tbody>
+            </table>
+    {% if user.planningday == null %}
+     <a href="{{path('planningsub', {id:planning.id})}}">Inscription</a>
+    {% else %}
+    <a href="{{path('deleteplanning')}}">Se désincrire du planning</a>
+    {% endif %}
+</div>
+<div class="row">
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'planning'~planning.id} %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12" id="map"> 
+    </div>
+</div>
+
+<script type="text/javascript">
+    var map;
+    var schoolMarker;
+    var userMarker;
+    var advertMarker;
+    var userLocation = JSON.parse('{{Ulocation|raw}}');
+    var advertLocation = JSON.parse('{{Alocation|raw}}');
+    console.log(userLocation);
+    for (i=0; i < userLocation.length; i++) {
+        console.log(userLocation[i][1], userLocation[i][2])
+    };
+
+    function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+          center: 
+          {lat:45.5885098 , lng:2.74221179999995},
+          zoom:17
+    });
+    schoolMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(45.5883080, 2.7417770),
+        map: map,
+        title: "Ecole primaire de La Bourboule",
+        icon: '/lib/img/iconschool1.png'
+    });
+    for(i=0; i< userLocation.length; i++) {
+        userMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(userLocation[i][1], userLocation[i][2]),
+            map:map,
+            icon: ''
+        });
+    }  
+    for(i=0; i < advertLocation.length; i++) {
+        advertMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(advertLocation[i][0], advertLocation[i][1]),
+            map:map,
+            icon: '/lib/img/marker-48-vert.png'
+        })
+    }
+    }
+    
+</script>
+
+{% endblock %}

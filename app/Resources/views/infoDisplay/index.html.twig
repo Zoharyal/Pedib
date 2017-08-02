@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="jumbotron">
+       <h2 id="schooltext">Pédibus : Rendez vous à l'école à pieds</h2>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Le Pédibus C'est Quoi ?</h2>
+          <p>Venez découvrir le pédibus </p>
+          <p><a class="btn btn-default" href="{{path('info')}}" role="button">Plus d'informations &raquo;</a></p>
+          <p><a class="btn btn-default" href="{{path('mapinfo')}}" role="button">Voir la carte &raquo;</a></p>    
+        </div>
+        <div class="col-md-6">
+          <h2>Information Inscription</h2>
+          <p>Informations et Inscriptions, nouveau trajet; </p>
+          <p><a class="btn btn-default" href="{{path('subscribe')}}" role="button">Poster son annonce &raquo;</a></p>
+          <p><a class="btn btn-default" href="{{path('listadvert')}}" role="button">Voir les annonces &raquo;</a></p>  
+       </div>
+      </div>
+{% endblock %}

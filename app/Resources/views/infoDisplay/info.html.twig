@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Le Pédibus c'est quoi ?</h2>
+                <p>C’est tout simple et ça marche comme un vrai bus, mais à pied!</p>
+                <h3>Description</h3>
+                <p>   Emmenant les enfants de la maison à l'école, sans bruit ni pollution, et avec la seule énergie de notre corps, le Pédibus est une invention qui change la vie!
+
+                L'itinéraire de la ligne de Pédibus, ses arrêts et ses horaires sont programmés par les parents. Chaque parent qui inscrit son enfant dans le Pédibus s'inscrit également pour le "conduire", une à deux fois par semaine selon les besoins. L'enfant rejoint alors le Pédibus à un arrêt et fait le trajet vers l'école avec ses camarades, sous la conduite d'un adulte. Après l'école, le Pédibus ramène l'enfant à l'arrêt le plus proche de chez lui, où l'attend son parent.</p>
+                <h3>Quels sont les avantages ?</h3>
+                <p><b>La santé :</b>
+                    Aller à pied à l'école permet de pratiquer une activité physique régulière. Cela contribut à éviter de nombreuses maladies liées à l'inactivité.
+                </p>
+                <p><b>La convivialité : </b>
+                   Tous les jours des liens se créent sur les lignes de Pédibus entre parents et entre enfants </p>
+                <p><b>L'environnement : </b>
+                    La marche à pied ne pollue pas, contrairement à la voiture qui consomme un maximum sur de courtes distances.  </p>
+                <h3>Fonctionnement </h3>
+                <p> Rendez vous sur la page des <a href="{{path('listadvert')}}">annonces</a>, de là vous pouvez soit poster une annonce, soit voir les annonces déjà publiées et rejoindre un planning  </p>
+            </div>
+            <div class="col-md-6 video">
+                <iframe width="520" height="292" src="https://www.youtube.com/embed/pY8lRJcmm8M" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+{% endblock %}

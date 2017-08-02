@@ -1,0 +1,25 @@
+
+{% extends "layout.html.twig" %}
+
+{% block title %}
+  Supprimer  planning 
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row well">
+      <h2>Supprimer votre participation au planning</h2>
+      <p>
+        Etes-vous certain de vouloir supprimer votre participation au planning ?
+      </p>
+      <form action="{{ path('deleteplanning') }}" method="post">
+        <a href="{{ path('adminview') }}" class="btn btn-default">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+          Retour au planning
+        </a>
+        <input type="submit" value="Supprimer" class="btn btn-danger" />
+        {{ form_rest(form) }}
+      </form>
+    </div>
+</div>
+{% endblock %}

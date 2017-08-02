@@ -1,0 +1,7 @@
+services:
+  simon_user.geocoder:
+     class: Simon\UserBundle\Geocoder\Geocoder
+  simon_user.registration_listener:
+     class: Simon\UserBundle\EventListener\RegistrationListener
+     tags:
+         - { name: kernel.event_subscriber }
