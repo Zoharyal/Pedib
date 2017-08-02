@@ -31,7 +31,7 @@ class RegistrationController extends BaseController
         $geometry->setUser($user);
         $em->persist($geometry);
         $em->flush();
-        var_dump($user);
+    
 
         
 
