@@ -1,3 +1,6 @@
 services:
   simon_pedi.serializer:
     class: Simon\PediBundle\Serializer\SimonSerializer
+  simon_pedi.planning:
+    class: Simon\PediBundle\PlanningInfo\PlanningInfo
+    arguments: ["@doctrine.orm.entity_manager"]

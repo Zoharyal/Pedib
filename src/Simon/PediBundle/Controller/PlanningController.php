@@ -27,7 +27,6 @@ class PlanningController extends Controller
         $planningId = $user->getPlanning()->getId();
         $planning = $planningRepo->find($planningId);
         
-    
         $users = $userRepo->findByPlanning($planningId);
         
         if (null === $planning) {
@@ -47,12 +46,9 @@ class PlanningController extends Controller
         $userRepo = $em->getRepository('SimonUserBundle:User');
         $userPlanning = $userRepo->findByPlanning($id);
         $planning = $planningRepo->find($id);
-        $PDayInfo = [];
-        foreach ($userPlanning as $userInfo)
-        {
-            $day = $userInfo->getPlanningday();
-            array_push($PDayInfo, $day);
-        }
+        $PDayInfoService = $this->container->get('simon_pedi.planning');
+        $PDayInfo = $PDayInfoService->planningDayinfo($id);
+        var_dump($PDayInfo);
         $form = $this->get('form.factory')->createBuilder(FormType::class, $user)
             ->add('planningday', ChoiceType::class, array( 'label' => 'Sélectionnez un jour',
               'choices' => array('Lundi' => 1, 'Mardi' => 2, 'Mercredi' => 3, 'Jeudi' => 4, 'Vendredi' => 5 )))
@@ -73,7 +69,7 @@ class PlanningController extends Controller
             }
         }
             
-        return $this->render('planningAction/subscribe.html.twig', array('form' => $form->createView(), 'info' => $PDayInfo));
+        return $this->render('planningAction/subscribe.html.twig', array('form' => $form->createView()));
     }
     
     public function unsubscribeAction(Request $request)

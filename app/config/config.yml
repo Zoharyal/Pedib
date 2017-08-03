@@ -77,8 +77,10 @@ fos_user:
     user_class:    Simon\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
     from_email:
         address: simon.eyragne@gmail.com    
-        sender_name: Simon
+        sender_name: Pedibus
     registration:
+        confirmation:
+            enabled: true
         form:
             type: Simon\UserBundle\Form\RegistrationType
 knp_paginator:

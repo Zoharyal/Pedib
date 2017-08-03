@@ -1,25 +1,6 @@
 {% extends "layout.html.twig" %}
 {% block content %}
 <div class="row">
-    {% for i in info %}
-    {% if i ==  1%}
-    <p>Le lundi</p>
-    {% endif %}
-    {% if i ==  2%}
-    <p>mardi</p>
-    {% endif %}
-    {% if i ==  3%}
-    <p>mercredi</p>
-    {% endif %}
-    {% if i ==  4%}
-    <p>jeudi</p>
-    {% endif %}
-    {% if i ==  5%}
-    <p>vendredi</p>
-    {% endif %}
-    {% endfor %}
-</div>
-<div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">{{form(form)}}</div>
     <div class="col-md-3"></div>
