@@ -79,22 +79,4 @@ class DisplayController extends Controller
         $advert = $advertRepo->findOneByUser($currentUserId);
         return $this->render('infoDisplay/viewadmin.html.twig', array('advert' => $advert));
     }
-    public function userGeometryAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $geoRepo = $em->getRepository('SimonPediBundle:Geometry');
-        $geometryUser = $geoRepo->findAll();
-        $userInfo = [];
-        foreach($geometryUser as $user) 
-        {
-            $AUser = $user->getUser()->getName();
-            $ALat = $user->getLat();
-            $ALng = $user->getLng();
-            $userLoca = [$AUser, $ALat, $ALng];
-            array_push($userInfo, $userLoca);
-        }
-        $response = new JsonResponse;
-        return $response->setData(array($userInfo));
-        
-    }
 }

@@ -5,5 +5,24 @@
     <div class="col-md-6">{{form(form)}}</div>
     <div class="col-md-3"></div>
 </div>
-
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+    var infoplanning = JSON.parse('{{info|raw}}');
+    if (infoplanning[1] === true ) {
+        $('#planning_planningday option[value="1"]').attr('disabled', 'disabled');
+    }
+    if (infoplanning[2] === true ) {
+        $('#planning_planningday option[value="2"]').attr('disabled', 'disabled');
+    }
+    if (infoplanning[3] === true ) {
+        $('#planning_planningday option[value="3"]').attr('disabled', 'disabled');
+    }
+    if (infoplanning[4] === true ) {
+        $('#planning_planningday option[value="4"]').attr('disabled', 'disabled');
+    }
+    if (infoplanning[5] === true ) {
+        $('#planning_planningday option[value="5"]').attr('disabled', 'disabled');
+    }
+</script>
 {% endblock %}

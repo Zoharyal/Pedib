@@ -1,0 +1,20 @@
+schoolMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(45.5883080, 2.7417770),
+        map: map,
+        title: "Ecole primaire de La Bourboule",
+        icon: '/lib/img/iconschool1.png'
+    });
+    for(i=0; i< userLocation.length; i++) {
+        userMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(userLocation[i][1], userLocation[i][2]),
+            map:map,
+            icon: ''
+        });
+    }  
+    for(i=0; i < advertLocation.length; i++) {
+        advertMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(advertLocation[i][0], advertLocation[i][1]),
+            map:map,
+            icon: '/lib/img/marker-48-vert.png'
+        })
+    }

@@ -76,7 +76,7 @@ fos_user:
     firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
     user_class:    Simon\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
     from_email:
-        address: simon.eyragne@gmail.com    
+        address: pedibusproject@gmail.com
         sender_name: Pedibus
     registration:
         confirmation:

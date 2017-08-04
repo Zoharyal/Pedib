@@ -6,13 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Simon\PediBundle\Entity\Advert;
 use Simon\PediBundle\Entity\Planning;
 use Simon\UserBundle\Entity\User;
+use Simon\PediBundle\Form\PlanningType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class PlanningController extends Controller
 {
@@ -46,15 +42,9 @@ class PlanningController extends Controller
         $userRepo = $em->getRepository('SimonUserBundle:User');
         $userPlanning = $userRepo->findByPlanning($id);
         $planning = $planningRepo->find($id);
-        $PDayInfoService = $this->container->get('simon_pedi.planning');
-        $PDayInfo = $PDayInfoService->planningDayinfo($id);
-        var_dump($PDayInfo);
-        $form = $this->get('form.factory')->createBuilder(FormType::class, $user)
-            ->add('planningday', ChoiceType::class, array( 'label' => 'Sélectionnez un jour',
-              'choices' => array('Lundi' => 1, 'Mardi' => 2, 'Mercredi' => 3, 'Jeudi' => 4, 'Vendredi' => 5 )))
-            ->add('planningcontent', TextType::class, array( 'label' => 'Description'))
-            ->add('S\'inscrire au planning', SubmitType::class)
-            ->getForm();
+        $PDayInfoService = $this->container->get('simon_pedi.planning')->planningDayinfo($id);
+        $PDayInfo = $this->container->get('simon_pedi.serializer')->ocSerialize($PDayInfoService);
+        $form = $this->get('form.factory')->create(PlanningType::class, $user);
         if ($request->isMethod('POST')) {
             
             $form->handleRequest($request);
@@ -69,7 +59,7 @@ class PlanningController extends Controller
             }
         }
             
-        return $this->render('planningAction/subscribe.html.twig', array('form' => $form->createView()));
+        return $this->render('planningAction/subscribe.html.twig', array('form' => $form->createView(), 'info' => $PDayInfo));
     }
     
     public function unsubscribeAction(Request $request)

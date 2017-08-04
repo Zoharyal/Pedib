@@ -48,7 +48,7 @@
     {% if user.planningday == null %}
      <a href="{{path('planningsub', {id:planning.id})}}">Inscription</a>
     {% else %}
-    <a href="{{path('deleteplanning')}}">Se désincrire du planning</a>
+    <button type="button" class="btn btn-danger"><a href="{{path('deleteplanning')}}">Se désincrire du planning</a></button>
     {% endif %}
 </div>
 <div class="row">

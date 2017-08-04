@@ -13,7 +13,11 @@
                 <h4> Description : </h4>
                 <p> {{advert.content}} </p>
                 <p>{{advert.file}}</p>
-                <a href="{{path('planningsub', {id:advert.planning.id})}}">Inscription</a>
+                {% if app.user.planningday == null %}
+                <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}">Inscription Planning</a></button>
+                {% else %}
+                <button type="button" class="btn btn-info"><a href="{{path('planning', {id:app.user.planning.id})}}">Voir votre planning</a></button>
+                {% endif %}
             </div>
         </div>
     </div>
