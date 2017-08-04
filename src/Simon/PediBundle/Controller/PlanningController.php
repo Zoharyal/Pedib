@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Simon\PediBundle\Entity\Advert;
 use Simon\PediBundle\Entity\Planning;
 use Simon\UserBundle\Entity\User;
-use Simon\PediBundle\Form\PlanningType;
+use Simon\PediBundle\Form\Type\PlanningType;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -46,9 +46,7 @@ class PlanningController extends Controller
         $PDayInfo = $this->container->get('simon_pedi.serializer')->ocSerialize($PDayInfoService);
         $form = $this->get('form.factory')->create(PlanningType::class, $user);
         if ($request->isMethod('POST')) {
-            
             $form->handleRequest($request);
-            
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $user->setPlanning($planning);
@@ -57,8 +55,7 @@ class PlanningController extends Controller
                 $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée');
                 return $this->redirectToRoute('planning', array('id' => $id));
             }
-        }
-            
+        }    
         return $this->render('planningAction/subscribe.html.twig', array('form' => $form->createView(), 'info' => $PDayInfo));
     }
     

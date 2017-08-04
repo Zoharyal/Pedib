@@ -82,7 +82,7 @@ fos_user:
         confirmation:
             enabled: true
         form:
-            type: Simon\UserBundle\Form\RegistrationType
+            type: Simon\UserBundle\Form\Type\RegistrationType
 knp_paginator:
     page_range: 5                      
     default_options:

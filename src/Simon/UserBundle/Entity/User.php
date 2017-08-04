@@ -79,7 +79,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="isAdmin", type="boolean", nullable=true)
      */
-    protected $isAdmin;
+    protected $Admin;
     /**
      *
      * @ORM\ManyToOne(targetEntity="Simon\PediBundle\Entity\Planning", cascade={"persist"})
@@ -234,7 +234,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setIsAdmin($isAdmin)
+    public function setAdmin($isAdmin)
     {
         $this->isAdmin = $isAdmin;
 
@@ -246,7 +246,7 @@ class User extends BaseUser
      *
      * @return boolean
      */
-    public function getIsAdmin()
+    public function getAdmin()
     {
         return $this->isAdmin;
     }

@@ -5,7 +5,7 @@ namespace Simon\PediBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Simon\PediBundle\Entity\Advert;
 use Simon\PediBundle\Entity\Planning;
-use Simon\PediBundle\Form\AdvertType;
+use Simon\PediBundle\Form\Type\AdvertType;
 use Simon\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 
