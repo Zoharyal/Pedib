@@ -8,6 +8,7 @@ use Simon\PediBundle\Entity\Planning;
 use Simon\UserBundle\Entity\User;
 use Simon\PediBundle\Form\Type\PlanningType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class PlanningController extends Controller
@@ -38,10 +39,8 @@ class PlanningController extends Controller
     {
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $planningRepo = $em->getRepository('SimonPediBundle:Planning');
-        $userRepo = $em->getRepository('SimonUserBundle:User');
-        $userPlanning = $userRepo->findByPlanning($id);
-        $planning = $planningRepo->find($id);
+        $planning = $em->getRepository('SimonPediBundle:Planning')->find($id);
+        $userPlanning = $em->getRepository('SimonUserBundle:User')->findByPlanning($id);
         $PDayInfoService = $this->container->get('simon_pedi.planning')->planningDayinfo($id);
         $PDayInfo = $this->container->get('simon_pedi.serializer')->ocSerialize($PDayInfoService);
         $form = $this->get('form.factory')->create(PlanningType::class, $user);

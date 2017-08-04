@@ -8,6 +8,7 @@ use Simon\PediBundle\Entity\Planning;
 use Simon\PediBundle\Form\Type\AdvertType;
 use Simon\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class AdvertController extends Controller 
