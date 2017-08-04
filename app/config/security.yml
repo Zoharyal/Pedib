@@ -40,3 +40,4 @@ security:
       - { path: ^/planningsub, role: ROLE_USER }
       - { path: ^/deleteadvert, role: ROLE_USER }
       - { path: ^/editadvert, role: ROLE_USER }
+      

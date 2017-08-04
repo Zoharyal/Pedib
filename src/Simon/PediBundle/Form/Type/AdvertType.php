@@ -1,6 +1,6 @@
 <?php
 
-namespace Simon\PediBundle\Form;
+namespace Simon\PediBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Simon\PediBundle\Form;
+namespace Simon\PediBundle\Form\Type;
 
 use Simon\PediBundle\Entity\Planning;
 use Simon\UserBundle\Entity\User;
