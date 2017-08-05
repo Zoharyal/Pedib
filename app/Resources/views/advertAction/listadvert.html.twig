@@ -1,30 +1,35 @@
 {% extends "layout.html.twig" %}
 {% block content %}
- <div class="row">
-            <div class="col-md-12">
-                <table class="table table-hover">
-                    <caption>Annonce de Pébibus</caption>
-                   <tr>
-                       <th>Nom</th>
-                       <th>Prénom</th>
-                       <th>Adresse</th>
-                       <th>Nombre d'enfants</th>
-                       <th>Voir l'annonce</th>
-                       <th></th>
-                   </tr> 
-                {% for advert in adverts %}
-                    <tr>
-                        <td>{{advert.user.lastname}}</td>
-                        <td>{{advert.user.name}}</td>
-                        <td>{{advert.user.address}}</td>
-                        <td>{{advert.nbChild}}</td>
-                        <td><a href="{{path('view', {id:advert.id})}}">Voir l'annonce</a></td>
-                    </tr>
-                {% endfor %}
-                </table>
+<div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <caption class="text-center">Annonce de Pébibus</caption>
+                       <tr>
+                           <th>Nom</th>
+                           <th>Prénom</th>
+                           <th>Adresse</th>
+                           <th>Nombre d'enfants</th>
+                           <th>Voir l'annonce</th>
+                           <th></th>
+                       </tr> 
+                    {% for advert in adverts %}
+                        <tr>
+                            <td>{{advert.user.lastname}}</td>
+                            <td>{{advert.user.name}}</td>
+                            <td>{{advert.user.address}}</td>
+                            <td>{{advert.nbChild}}</td>
+                            <td><a href="{{path('view', {id:advert.id})}}">Voir l'annonce</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
                 <div class="navigation">
                  {{ knp_pagination_render(adverts) }}
                 </div>
             </div>
+            <p>Pour poster votre annonce c'est par <a href="{{path('subscribe')}}">ici</a> </p>
         </div>
+</div>
 {% endblock %}

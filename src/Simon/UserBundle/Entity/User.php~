@@ -103,24 +103,19 @@ class User extends BaseUser
      * @ORM\Column(name="address", type="string", length=255)
      */
     protected $address;
-    
-    
     /**
-     * @return File|null
+     * @UploadableField(filename="filename", path="users")
      */
-    public function getFile()
-    {
-        return $this->file;
-    }
-    
+    private $file;
     /**
-     * @param File $file|null
+     * @var string
+     * @ORM\Column(name="filename", type="string", length=255, nullable = true)
      */
-    public function setFile($file)
-    {
-        $this->file = $file;
-    }
+    private $filename;
     
+    
+   
+   
     /**
      * Get id
      *
@@ -348,6 +343,7 @@ class User extends BaseUser
     }
 
 
+   
     /**
      * Set filename
      *
@@ -371,6 +367,23 @@ class User extends BaseUser
     {
         return $this->filename;
     }
+    
+    /**
+     * @return File|null
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param File $file|null
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+    
     
     public function addRole($role)
     {

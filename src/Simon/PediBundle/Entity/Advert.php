@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Simon\UploadBundle\Annotation\Uploadable;
 use Simon\UploadBundle\Annotation\UploadableField;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -30,6 +31,7 @@ class Advert
      * @var int
      *
      * @ORM\Column(name="nbChild", type="integer")
+     * @Assert\NotBlank()
      */
     private $nbChild;
     /**
@@ -51,11 +53,17 @@ class Advert
 
     /**
      * @ORM\Column(name="content", type="text")
+     * @Assert\Length(min=20,
+     *                 max=800,
+     *                 minMessage= "Merci de rentrer une 
+     *  description",
+     *                 maxMessage= "Description trop longue")
      */
     private $content;
     
     /**
      * @UploadableField(filename="filename", path="adverts")
+     * @Assert\File(maxSize="5000000")
      */
     private $file;
     /**

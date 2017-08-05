@@ -11,6 +11,8 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 
 class RegistrationController extends BaseController
 {
