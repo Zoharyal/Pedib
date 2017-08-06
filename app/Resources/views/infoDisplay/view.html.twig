@@ -15,12 +15,12 @@
                 <p>{{advert.file}}</p>
                 {% if is_granted('ROLE_USER') %}
                 {% if app.user.planningday == null %}
-                <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}">Inscription Planning</a></button>
+                <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}" class="view">Inscription Planning</a></button>
                 {% else %}
-                <button type="button" class="btn btn-info"><a href="{{path('planning', {id:app.user.planning.id})}}">Voir votre planning</a></button>
+                <button type="button" class="btn btn-info"><a href="{{path('planning', {id:app.user.planning.id})}}" class="view">Voir votre planning</a></button>
                 {% endif %}
                 {% else %}
-                <p> Vous devez vous <a href="{{path('fos_user_security_login')}}">connecter</a> </p>
+                <p> Vous devez vous <button type="button" class="btn btn-success"><a href="{{path('fos_user_security_login')}}" class="view">connecter</a></button> </p>
                 {% endif %}
             </div>
         </div>

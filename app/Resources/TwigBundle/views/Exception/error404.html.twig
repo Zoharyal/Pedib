@@ -6,12 +6,11 @@
   </head>
   <body>
     <h1>Oops! Une erreur à été détectée</h1>
-    <h2>Le serveur à retourné "{{ status_code }} {{ status_text }}".</h2>
-
-    <div>
-      Something is broken. Please e-mail us at [email] and let us know
-      what you were doing when this error occurred. We will fix it as soon
-      as possible. Sorry for any inconvenience caused.
+    <div class="col-xs-6">
+        <img class="img-responsive pull-right" src="{{asset('/lib/img/404-ghost.png')}}" alt="Error ghost"/>
+    </div>
+    <div class="col-xs-6">
+        <h1>Le serveur à retourné une erreur : "{{ status_code }} {{ status_text }}".</small></h1>
     </div>
   </body>
 </html>

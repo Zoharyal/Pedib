@@ -1,0 +1,14 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        <h2>Félicitations {{user.username}}</h2>
+        <p> Votre compte est désormais activé, vous pouvez pleinement profiter de toutes les fonctionnalités du site de <a href="{{path('homepage')}}">pédibus</a></p>
+    </div>
+    <div class="col-md-2">
+    </div>
+{% endblock fos_user_content %}

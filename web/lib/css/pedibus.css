@@ -16,14 +16,23 @@ body
 #schooltext
 {
     font-family: 'Indie Flower', cursive;
-    
     color: #ff0000;
-
 }
 
 .video
 {
     padding-top: 50px;
+}
+
+.view:hover
+{
+    text-decoration: none;
+    color: antiquewhite;
+}
+.view
+{
+    text-decoration: none;
+    color:antiquewhite;
 }
 @media screen and (max-width: 767px) {
   table caption {
