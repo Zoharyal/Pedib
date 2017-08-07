@@ -30,7 +30,8 @@ class AdvertController extends Controller
             $em->persist($advert);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée');
-            return $this->redirectToRoute('subscribe');
+            $id = $advert->getPlanning()->getId();
+            return $this->redirectToRoute('planningsub', array('id' => $id));
         }
         return $this->render('advertAction/subscribe.html.twig', array('form' => $form->createView()));
     }

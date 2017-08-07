@@ -14,15 +14,29 @@ body
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-#pediinfo
+#pediinfo, #infosec
 {
     
     margin-top: 15px;
     background-color:white;
 }
+.infopedib
+{
+    font-size:15px;
+    font-family: 'Open Sans', sans-serif;
+}
 .infopedi
 {
     font-size:18px;
+    font-family: 'Open Sans', sans-serif;
+}
+.infosec
+{
+    font-size:15px;
+    font-family: 'Open Sans', sans-serif;
+}
+.infotitle
+{
     font-family: 'Open Sans', sans-serif;
 }
 .navsecondaire

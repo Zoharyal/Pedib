@@ -1,4 +1,12 @@
 {% extends "infoDisplay/info.html.twig" %}
 {% block info %}
-Coucou
+<p class="infopedib">
+    Il n'y pas encore de ligne de Pédibus pour la Ville de La Bourboule néanmoins le site vous aide à trouver des parents d'élèves autour de vous pour créer votre ligne de Pédibus.
+</p>
+<p class="infopedib">
+    Rendez vous sur la <a href="{{path('mapinfo')}}">carte</a>. De la vous pouvez visualier tous les utilisateurs qui sont inscrits sur le site à l'aide d'un marqueur bleu et tous les utilisateurs qui ont déjà postés une annonce à l'aide d'un marqueur vert.
+    Si une annonce vous intéresse et se situe près de votre adresse, cliquez simplement sur le marqueur puis sur voir l'annonce.
+    Sur la page d'annonce vous pouvez alors vous inscrire au planning.
+    Si aucune annonce ne vous convient, alors créez la votre en vous rendant sur cette <a href="{{path('subscribe')}}">page </a> pour poster votre propre annonce.
+</p>
 {% endblock %}

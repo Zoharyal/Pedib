@@ -20,7 +20,7 @@ class DisplayController extends Controller
     
     public function infoAction()   
     {
-        return $this->render('infoDisplay/info.html.twig');
+        return $this->render('infoDisplay/infoDescription.html.twig');
     }
     
     public function mapAction()
