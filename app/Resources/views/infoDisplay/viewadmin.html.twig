@@ -11,7 +11,7 @@
         <p> {{advert.content}} </p>
     </div>
 <button type="button" class="btn btn-info"><a href="{{path('editadvert')}}" class="view" >Editer</a></button>
-<button type="button" class="btn btn-danger"><a href="{{path('deleteadvert', {id:advert.id})}}" class="view">Supprimer</a></button>
+
 {% if app.user.planningday == null %}
 <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}" class="view">Inscription Planning</a></button>
 {% endif %}

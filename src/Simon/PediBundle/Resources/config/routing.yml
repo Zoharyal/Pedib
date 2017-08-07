@@ -12,6 +12,8 @@ view:
     defaults: { _controller:SimonPediBundle:Display:view}
     requirements:
         id: \d+
+    options:
+        expose: true
 adminview:
     path: /view
     defaults: { _controller:SimonPediBundle:Display:viewAdmin}
@@ -24,11 +26,7 @@ listadvert:
 editadvert:
     path: /view/edit
     defaults: { _controller:SimonPediBundle:Advert:editAdvert}
-deleteadvert:
-    path: /delete/{id}
-    defaults: { _controller:SimonPediBundle:Advert:deleteAdvert}
-    requirements:
-        id: \d+
+
 deleteplanning:
     path: /delete
     defaults: { _controller:SimonPediBundle:Planning:unsubscribe}
@@ -42,10 +40,15 @@ planningsub:
     defaults: { _controller:SimonPediBundle:Planning:subscribe}
     requirements:
         id: \d+
-geometry:
-   path: /geometry
-   defaults: { _controller:SimonPediBundle:Display:userGeometry}
-   methods: [get]
+info_description:
+    path: /info/description
+    defaults: { _controller:SimonPediBundle:Display:infoDescription} 
+info_avantages:
+    path: /info/avantages
+    defaults: { _controller:SimonPediBundle:Display:infoAvantages }
+info_fonc:
+    path: /info/fonctionnement
+    defaults: { _controller:SimonPediBundle:Display:infoFonctionnement }
    
    
 

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Simon\UserBundle\Entity\User;
 use Simon\PediBundle\Entity\Geometry;
 use Simon\PediBundle\Entity\Advert;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 
@@ -24,34 +25,8 @@ class DisplayController extends Controller
     
     public function mapAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $geoRepo = $em->getRepository('SimonPediBundle:Geometry');
-        $advertRepo = $em->getRepository('SimonPediBundle:Advert');
-        $adverts = $advertRepo->findAll();
-        $geometryUser = $geoRepo->findAll();
-        $advertInfo = [];
-        foreach($adverts as $advert)
-        {
-            
-            $user = $advert->getUser();
-            $Ageometry = $geoRepo->findByUser($user);
-            $username = $user->getUsername();
-            foreach($Ageometry as $advertLoca) {
-                $ALat = $advertLoca->getLat();
-                $ALng = $advertLoca->getLng();
-                $ALoca = [$ALat, $ALng];
-                array_push($advertInfo, $ALoca);
-            }
-        }
-        $userInfo = [];
-        foreach($geometryUser as $user) 
-        {
-            $Uname = $user->getUser()->getName();
-            $ULat = $user->getLat();
-            $ULng = $user->getLng();
-            $userLoca = [$Uname, $ULat, $ULng];
-            array_push($userInfo, $userLoca);
-        }
+        $userInfo = $this->container->get('simon_pedi.geometry')->geometryUser();
+        $advertInfo = $this->container->get('simon_pedi.geometry')->geometryAdvert();
         $serializer = $this->container->get('simon_pedi.serializer');
         $Ulocation = $serializer->ocSerialize($userInfo);
         $Alocation = $serializer->ocSerialize($advertInfo);
@@ -59,7 +34,6 @@ class DisplayController extends Controller
         return $this->render('infoDisplay/map.html.twig', array('Ulocation' => $Ulocation,
                                                                 'Alocation' => $Alocation));
     }
-    
     public function viewAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -78,5 +52,20 @@ class DisplayController extends Controller
         $currentUserId = $this->getUser()->getId();
         $advert = $advertRepo->findOneByUser($currentUserId);
         return $this->render('infoDisplay/viewadmin.html.twig', array('advert' => $advert));
+    }
+    
+    public function infoDescriptionAction()
+    {
+        return $this->render('infoDisplay/infoDescription.html.twig');
+    }
+    
+    public function infoAvantagesAction()
+    {
+        return $this->render('infoDisplay/infoAvantages.html.twig');
+    }
+    
+    public function infoFonctionnementAction()
+    {
+        return $this->render('infoDisplay/infoFonctionnement.html.twig');
     }
 }

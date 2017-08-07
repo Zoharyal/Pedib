@@ -1,17 +1,22 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 well">
-        <div class="fos_user_user_show">
-            <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-            <h4>Contact : </h4>
-            <p> E-mail : {{user.email}} </p>
-            <p> Téléphone : {{user.phone}}</p>
-            <h4>Addresse : </h4>
-            <p> {{user.address}}</p>
-        </div>
+<div cladd="row"></div>
+<div class="row well">
+    <div class="col-md-3">
+            {% if user.avatarName == null %}
+            <img src="{{asset('/lib/img/generic-user.png')}}" alt='generic user' class="avatar">
+            {% else %}
+             <img src="{{ vich_uploader_asset(user, 'avatarFile') }}" alt="{{ user.name }}" class="img-thumbnail"  class="avatar"/>
+            {% endif %}
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-6">
+            <p><b>{{ 'profile.show.username'|trans }}</b>: {{ user.username }}</p>
+            <p> <b>E-mail</b> : {{user.email}} </p>
+            <p> <b>Téléphone</b> : {{user.phone}}</p>
+        <p> <b>Addresse</b> : {{user.address}}, {{user.city}}, {{user.postcode}}</p>
+        </br>
+    <button type="button" class="btn btn-secondary"><a href="{{path('fos_user_profile_edit')}}">Editer votre profil</a></button>
+    <button type="button" class="btn btn-danger"><a href="{{path('fos_user_change_password')}}">Changer votre mot de passe</a></button>
+    </div>
 </div>
 
 

@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="advert")
  * @ORM\Entity(repositoryClass="Simon\PediBundle\Repository\AdvertRepository")
- * @Uploadable()
   */
 class Advert
 {
@@ -61,16 +60,6 @@ class Advert
      */
     private $content;
     
-    /**
-     * @UploadableField(filename="filename", path="adverts")
-     * @Assert\File(maxSize="5000000")
-     */
-    private $file;
-    /**
-     * @var string
-     * @ORM\Column(name="filename", type="string", length=255, nullable = true)
-     */
-    private $filename;
    
     
     

@@ -24,7 +24,8 @@ class RegistrationController extends BaseController
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $address = $user->getAddress();
-        $geocodeAddress = $address . ",La Bourboule";
+        $city = $user->getCity();
+        $geocodeAddress = $address . "," . $city;
         $geo = $this->container->get('simon_user.geocoder');
         $coord = $geo->geocode($geocodeAddress);
         $geometry = new Geometry();
@@ -33,10 +34,6 @@ class RegistrationController extends BaseController
         $geometry->setUser($user);
         $em->persist($geometry);
         $em->flush();
-    
-
-        
-
         return $this->render('@FOSUser/Registration/confirmed.html.twig', array(
             'user' => $user,
             'targetUrl' => $this->getTargetUrlFromSession(),

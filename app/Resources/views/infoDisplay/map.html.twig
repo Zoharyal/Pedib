@@ -6,7 +6,8 @@
 </div>
 {% endblock %}
 {% block javascripts %}
-
+<script src="{{asset('bundles/fosjsrouting/js/router.js')}}"></script>
+<script src="{{path('fos_js_routing_js', {callback: 'fos.Router.setData' }) }}"></script>
 
 <script type="text/javascript">
     var map;
@@ -15,7 +16,7 @@
     var advertMarker;
     var userLocation = JSON.parse('{{Ulocation|raw}}');
     var advertLocation = JSON.parse('{{Alocation|raw}}');
-
+    console.log(advertLocation);
     function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
           center: 
@@ -29,18 +30,33 @@
         icon: "{{asset('lib/img/iconschool1.png')}}"
     });
     for(i=0; i< userLocation.length; i++) {
+        if (userLocation[i][3] !== null) {
+    
+        } else {
         userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(userLocation[i][1], userLocation[i][2]),
             map:map,
             icon: ''
         });
-    }  
+        }
+    } 
+    var infowindow = new google.maps.InfoWindow();
     for(i=0; i < advertLocation.length; i++) {
         advertMarker = new google.maps.Marker({
             position: new google.maps.LatLng(advertLocation[i][0], advertLocation[i][1]),
             map:map,
             icon: "{{asset('/lib/img/marker-48-vert.png')}}"
-        })
+        });
+        var idloc = advertLocation[i][2];
+        var contentString = Routing.generate('view', {id: idloc});
+        var url = '<a href="'+contentString+'">' + "Voir l'annonce" + '</a>';
+        google.maps.event.addListener(advertMarker, 'click', (function(advertMarker, i, url) {
+            return function() {
+                infowindow.setContent(url);
+                infowindow.open(map, advertMarker);
+            }
+        })(advertMarker, i, url));
+        
     }    
     }
     

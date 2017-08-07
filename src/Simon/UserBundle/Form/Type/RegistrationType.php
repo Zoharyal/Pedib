@@ -22,7 +22,9 @@ class RegistrationType extends AbstractType
                 ->add('lastname', TextType::class,  array('label' => 'Nom '))
                 ->add('phone', TextType::class, array('label' => 'Numéro de télephone', 'attr' => array('placeholder' => '0X XX XX XX XX')))
                 ->add('address', TextType::class, array('label' => 'Adresse', 'attr' => array('placeholder' => "N° / Libellé de la voie")))
-
+                ->add('city', TextType::class, array('label' => 'Ville'))
+                ->add('postCode', TextType::class, array('label' => 'Code Postal'))
+                ->add('avatarFile', Filetype::class, array( 'label' => "Avatar"))
             ;
                 
     }

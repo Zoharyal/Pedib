@@ -103,4 +103,15 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
-        
+vich_uploader:
+    db_driver: orm
+    
+    mappings:
+        user_avatar:
+            uri_prefix: /users/avatar
+            upload_destination: '%kernel.root_dir%/../web/users/avatar'
+            inject_on_load:    false
+            delete_on_update:  true
+            delete_on_remove: true
+fos_js_routing:
+    routes_to_expose: [ view ] 

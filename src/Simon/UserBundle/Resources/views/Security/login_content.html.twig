@@ -35,6 +35,7 @@
 </form>
     <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
         <p>Pas de compte ? Inscrivez vous <span class="glyphicon glyphicon-log-in"></span><a href="{{path('fos_user_registration_register')}}"> ICI</a></p>
+        <p>Vous aves oublié votre mot de passe ? <a href={{path('fos_user_resetting_request')}}>ICI</a></p>
     </div>
     {% if error %}
     <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" id="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

@@ -4,3 +4,6 @@ services:
   simon_pedi.planning:
     class: Simon\PediBundle\PlanningInfo\PlanningInfo
     arguments: ["@doctrine.orm.entity_manager"]
+  simon_pedi.geometry:
+    class: Simon\PediBundle\Geometry\GeometryInfo
+    arguments: ["@doctrine.orm.entity_manager"]

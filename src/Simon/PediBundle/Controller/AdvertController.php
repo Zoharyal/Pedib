@@ -66,26 +66,5 @@ class AdvertController extends Controller
         
     }
     
-    public function deleteAdvertAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        
-        $advert = $em->getRepository('SimonPediBundle:Advert')->find($id);
-        
-        $form = $this->get('form.factory')->create();
-        
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em->remove($advert);
-            $em->flush();
-            
-            $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
-            
-            return $this->redirectToRoute('homepage');
-        }
-        
-        return $this->render('advertAction/delete.html.twig', array('advert' => $advert,
-                                                                    'form' => $form->createView(),
-                                                                   ));
-        
-    }
+
 }

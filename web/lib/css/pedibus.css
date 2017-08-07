@@ -1,6 +1,7 @@
 body
 {
     padding-top:50px;
+    background-image: url(../img/ps_neutral.png);
 }
 #map {
     height:80%;
@@ -12,6 +13,47 @@ body
     background-image: url(../img/school.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+#pediinfo
+{
+    
+    margin-top: 15px;
+    background-color:white;
+}
+.infopedi
+{
+    font-size:18px;
+    font-family: 'Open Sans', sans-serif;
+}
+.navsecondaire
+{
+    padding-top:10px;
+}
+.secondaire
+{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background-color: dimgray;
+}
+.secondaire li
+{
+    float:left;
+}
+.secondaire li a 
+{
+    display:block;
+    color:white;
+    text-align:center;
+    font-family: 'Open Sans', sans-serif;
+    padding:14px 16px;
+    text-decoration: none;
+}
+.secondaire li a:hover
+{
+    color:red;
+    border-bottom: 2px solid red;
 }
 #schooltext
 {
