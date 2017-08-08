@@ -49,6 +49,8 @@ info_avantages:
 info_fonc:
     path: /info/fonctionnement
     defaults: { _controller:SimonPediBundle:Display:infoFonctionnement }
-   
+credit:
+    path: /credit
+    defaults: { _controller:SimonPediBundle:Display:credit }
    
 

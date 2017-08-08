@@ -46,9 +46,9 @@
                 </tbody>
             </table>
     {% if user.planningday == null %}
-     <a href="{{path('planningsub', {id:planning.id})}}">Inscription</a>
+    <button type="button" class="btn btn-info btn-arrow-right"><a href="{{path('planningsub', {id:planning.id})}}" class="view">Inscription</a></button>
     {% else %}
-    <button type="button" class="btn btn-danger"><a href="{{path('deleteplanning')}}">Se désincrire du planning</a></button>
+    <button type="button" class="btn btn-danger view"><a href="{{path('deleteplanning')}}" class="view">Se désincrire du planning</a></button>
     {% endif %}
 </div>
 <div class="row">

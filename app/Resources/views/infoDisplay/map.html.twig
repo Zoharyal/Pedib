@@ -36,7 +36,7 @@
         userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(userLocation[i][1], userLocation[i][2]),
             map:map,
-            icon: ''
+            icon: "{{asset('/lib/img/marker-48-bleu.png')}}"
         });
         }
     } 
@@ -56,6 +56,18 @@
                 infowindow.open(map, advertMarker);
             }
         })(advertMarker, i, url));
+        var flightPlan = [
+            {lat:45.5883081, lng:2.741777 },
+            {lat: advertLocation[i][0], lng: advertLocation[i][1]}
+        ];
+        var flightPath = new google.maps.Polyline({
+            path: flightPlan,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+        flightPath.setMap(map);
         
     }    
     }

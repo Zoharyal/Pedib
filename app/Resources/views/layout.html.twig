@@ -56,14 +56,10 @@
                 </div>
             <!-- container -->
         </nav>
-        <div id="content">{% block content %}{% endblock %}</div>
-        <div id="fos_user">
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+        <div id="content">{% block content %}{% endblock %}
+            {% block fos_user_content %}{% endblock fos_user_content %}
              </div>
-        <footer class="footer">
-            
-        </footer>
+       
         </div>
         <!-- SCRIPT -->
          <script src="{{asset('/lib/js/jquery-3.2.1.min.js')}} "></script>

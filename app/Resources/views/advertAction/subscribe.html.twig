@@ -15,10 +15,10 @@
                 {{form_end(form)}}
                 {% else %}
                 <p> Vous devez vous connecter ou vous inscrire pour poster une annonce </p>
-                <p><a href="{{path('fos_user_security_login')}}">Connexion</a></p>
-                <p><a href="{{path('fos_user_registration_register')}}">Inscription</a></p>
+                <a href="{{path('fos_user_security_login')}}" class=" btn btn-default">Connexion</a></button>
+                <a href="{{path('fos_user_registration_register')}}" class="btn btn-default ">Inscription</a>
                 {% endif %}
-                <p><a href="{{path('listadvert')}}">Voir les annonces</a></p>
+                <button type="button" class="btn btn-info"><a href="{{path('listadvert')}}" class="view">Voir les annonces</a></button>
             </div>
             <div class="col-md-3"></div>
         </div>

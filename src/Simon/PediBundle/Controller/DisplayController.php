@@ -68,4 +68,9 @@ class DisplayController extends Controller
     {
         return $this->render('infoDisplay/infoFonctionnement.html.twig');
     }
+    
+    public function creditAction()
+    {
+        return $this->render('infoDisplay/credit.html.twig');
+    }
 }

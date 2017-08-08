@@ -39,6 +39,11 @@ body
 {
     font-family: 'Open Sans', sans-serif;
 }
+#childschool
+{
+    width:50%;
+    margin: 0 auto;
+}
 .navsecondaire
 {
     padding-top:10px;
@@ -74,13 +79,19 @@ body
     font-family: 'Indie Flower', cursive;
     color: #ff0000;
 }
-
+.footer
+{
+    border-top: 1px solid #ccc;
+    padding-top:15px;
+    margin-top: 20px;
+    text-align: center;
+}
 .video
 {
     padding-top: 50px;
 }
 
-.view:hover
+.view:hover, .view:focus
 {
     text-decoration: none;
     color: antiquewhite;
