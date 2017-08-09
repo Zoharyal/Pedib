@@ -13,11 +13,11 @@
                 <h4> Description : </h4>
                 <p> {{advert.content}} </p>
                 {% if is_granted('ROLE_USER') %}
-                {% if app.user.planning.id != advert.planning.id %}
+                {% if app.user.planningday == null %}
+                <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}" class="view">Inscription Planning</a></button>
+                {% elseif app.user.planning.id != advert.planning.id %}
                 <p><b>Vous participez déjà un planning</b>
                 <p>Rendez vous <a href= "{{path('planning', {id: app.user.planning.id})}}"> ici</a> pour voir votre planning</p>
-                {% elseif app.user.planningday == null %}
-                <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}" class="view">Inscription Planning</a></button>
                 {% else %}
                 <button type="button" class="btn btn-info"><a href="{{path('planning', {id:app.user.planning.id})}}" class="view">Voir votre planning</a></button>
                 {% endif %}
