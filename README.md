@@ -1,4 +1,4 @@
 PediProject
 ===========
 
-A Symfony project created on July 10, 2017, 9:27 am.
+Prototype de plateforme de mise en relation afin de promouvoir le Pédibus( ramassage scolaire à pied ) sous Symfony 3.
