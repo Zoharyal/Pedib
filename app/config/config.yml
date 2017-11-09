@@ -43,6 +43,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
+        server_version: 5.7.14
         driver: pdo_mysql
         host: '%database_host%'
         port: '%database_port%'
@@ -70,7 +71,7 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-    
+
 fos_user:
     db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
     firewall_name: main                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
@@ -82,21 +83,21 @@ fos_user:
         form:
             type: Simon\UserBundle\Form\Type\RegistrationType
 knp_paginator:
-    page_range: 5                      
+    page_range: 5
     default_options:
-        page_name: page                
-        sort_field_name: sort         
-        sort_direction_name: direction 
-        distinct: true                
+        page_name: page
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
     template:
-        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig    
-        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig 
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
 fos_comment:
     db_driver: orm
     class:
         model:
             comment: Simon\CommentBundle\Entity\Comment
-            thread: Simon\CommentBundle\Entity\Thread  
+            thread: Simon\CommentBundle\Entity\Thread
 assetic:
     bundles: [ "FOSCommentBundle" ]
     debug:          '%kernel.debug%'
@@ -105,7 +106,7 @@ assetic:
         cssrewrite: ~
 vich_uploader:
     db_driver: orm
-    
+
     mappings:
         user_avatar:
             uri_prefix: /users/avatar
@@ -114,4 +115,4 @@ vich_uploader:
             delete_on_update:  true
             delete_on_remove: true
 fos_js_routing:
-    routes_to_expose: [ view ] 
+    routes_to_expose: [ view ]
