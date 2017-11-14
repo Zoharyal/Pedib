@@ -6,7 +6,7 @@
     "autoload": {
         "psr-4": {
             "Simon\\": "src/Simon"
-            
+
         },
         "classmap": [
             "app/AppKernel.php",

@@ -7,6 +7,10 @@ info:
 mapinfo:
     path: /map
     defaults: { _controller:SimonPediBundle:Display:map }
+mapservice:
+    path: /map/mapservice
+    defaults: { _controller:SimonPediBundle:Display:mapService}
+    methods: [get]
 view:
     path: /advert/{id}
     defaults: { _controller:SimonPediBundle:Display:view}
@@ -42,7 +46,7 @@ planningsub:
         id: \d+
 info_description:
     path: /info/description
-    defaults: { _controller:SimonPediBundle:Display:infoDescription} 
+    defaults: { _controller:SimonPediBundle:Display:infoDescription}
 info_avantages:
     path: /info/avantages
     defaults: { _controller:SimonPediBundle:Display:infoAvantages }
@@ -52,5 +56,3 @@ info_fonc:
 credit:
     path: /credit
     defaults: { _controller:SimonPediBundle:Display:credit }
-   
-
