@@ -10,7 +10,15 @@
 {% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
-    var infoplanning = JSON.parse('{{info|raw}}');
+    $(document).ready(
+      $.ajax({
+        url: "{{path('subscribeservice'), {id:planning.id}}}",
+        method: "GET",
+        success: function(data) {
+          console.log(data);
+        }
+      })
+    )
     if (infoplanning[1] === true ) {
         $('#planning_planningday option[value="1"]').attr('disabled', 'disabled');
     }

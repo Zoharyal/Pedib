@@ -24,6 +24,7 @@ adminview:
 subscribe:
     path: /subscribe
     defaults: { _controller:SimonPediBundle:Advert:subscribe }
+
 listadvert:
     path: /listadvert
     defaults: { _controller:SimonPediBundle:Advert:listAdvert}
@@ -44,6 +45,12 @@ planningsub:
     defaults: { _controller:SimonPediBundle:Planning:subscribe}
     requirements:
         id: \d+
+subscribeservice:
+    path: /planning/subscribe{id}/service
+    defaults: { _controller:SimonPediBundle:Planning:subscribeService}
+    requirements:
+        id: \d+
+    methods: [get]
 info_description:
     path: /info/description
     defaults: { _controller:SimonPediBundle:Display:infoDescription}
