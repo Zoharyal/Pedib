@@ -79,42 +79,21 @@ class User extends BaseUser
      * @ORM\Column(name="isAdmin", type="boolean", nullable=true)
      */
     protected $Admin;
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="Simon\PediBundle\Entity\Planning", cascade={"persist", "remove"})
-     *
-     */
-    protected $planning;
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="planningday", type="smallint", nullable= true)
-     */
-    protected $planningday;
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="planningcontent", type="text", nullable= true)
-     */
-    protected $planningcontent;
-    /**
-     *@ var string
-     * @ORM\Column(name="address", type="string", length=255)
-     */
+
     protected $address;
-    
+
     /**
      *@ var string
      *@ORM\Column(name="city", type="string", length=255)
      */
     protected $city;
-    
+
     /**
      * @var string
      *@ORM\Column(name="postCode", type="string", length=5)
      */
     protected $postCode;
-    
+
     /**
      * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName", size="imageSize")
      *
@@ -127,7 +106,7 @@ class User extends BaseUser
      * @ORM\Column(name="avatarName", type="string", length=255, nullable = true)
      */
     private $avatarName;
-    
+
     /**
      * @ORM\Column(type="integer", nullable =true)
      *
@@ -140,10 +119,10 @@ class User extends BaseUser
      * @var \Datetime
      */
     private $updateAt;
-    
-    
-   
-   
+
+
+
+
     /**
      * Get id
      *
@@ -274,54 +253,7 @@ class User extends BaseUser
         return $this->isAdmin;
     }
 
-    /**
-     * Set planningday
-     *
-     * @param integer $planningday
-     *
-     * @return User
-     */
-    public function setPlanningday($planningday)
-    {
-        $this->planningday = $planningday;
-
-        return $this;
-    }
-
-    /**
-     * Get planningday
-     *
-     * @return integer
-     */
-    public function getPlanningday()
-    {
-        return $this->planningday;
-    }
-
-    /**
-     * Set planningcontent
-     *
-     * @param string $planningcontent
-     *
-     * @return User
-     */
-    public function setPlanningcontent($planningcontent)
-    {
-        $this->planningcontent = $planningcontent;
-
-        return $this;
-    }
-
-    /**
-     * Get planningcontent
-     *
-     * @return string
-     */
-    public function getPlanningcontent()
-    {
-        return $this->planningcontent;
-    }
-
+  
     /**
      * Set address
      *
@@ -369,19 +301,19 @@ class User extends BaseUser
     {
         return $this->planning;
     }
-    
-    
+
+
     public function addRole($role)
     {
         $role = strtoupper($role);
-        
+
         if (!in_array($role, $this->roles, true)) {
             $this->roles[] = $role;
         }
-        
+
         return $this;
     }
-    
+
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the  update. If this
@@ -402,7 +334,7 @@ class User extends BaseUser
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
-        
+
         return $this;
     }
     /**
@@ -483,7 +415,7 @@ class User extends BaseUser
     {
         return $this->updateAt;
     }
-    
+
     public function __construct()
     {
         $this->updateAt = new \Datetime();
