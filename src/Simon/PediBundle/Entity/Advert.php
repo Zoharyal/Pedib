@@ -38,11 +38,7 @@ class Advert
      *
      */
     private $user;
-    /**
-     * *@ORM\OneToOne(targetEntity="Simon\PediBundle\Entity\Planning", cascade={"persist", "remove"})
-     *
-     */
-    private $planning;
+
     /**
      * @var \DateTime
      *
@@ -54,15 +50,15 @@ class Advert
      * @ORM\Column(name="content", type="text")
      * @Assert\Length(min=20,
      *                 max=800,
-     *                 minMessage= "Merci de rentrer une 
+     *                 minMessage= "Merci de rentrer une
      *  description",
      *                 maxMessage= "Description trop longue")
      */
     private $content;
-    
-   
-    
-    
+
+
+
+
     public function __construct()
     {
         $this->date = new \Datetime();
@@ -175,30 +171,7 @@ class Advert
         return $this->user;
     }
 
-    /**
-     * Set planning
-     *
-     * @param \Simon\PediBundle\Entity\Planning $planning
-     *
-     * @return Advert
-     */
-    public function setPlanning(\Simon\PediBundle\Entity\Planning $planning = null)
-    {
-        $this->planning = $planning;
-
-        return $this;
-    }
-
-    /**
-     * Get planning
-     *
-     * @return \Simon\PediBundle\Entity\Planning
-     */
-    public function getPlanning()
-    {
-        return $this->planning;
-    }
-
+    
     /**
      * Set filename
      *
@@ -222,7 +195,7 @@ class Advert
     {
         return $this->filename;
     }
-    
+
     /**
      * @return File|null
      */
@@ -238,6 +211,6 @@ class Advert
     {
         $this->file = $file;
     }
-    
-    
+
+
 }

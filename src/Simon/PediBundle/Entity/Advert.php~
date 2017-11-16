@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Simon\UploadBundle\Annotation\Uploadable;
 use Simon\UploadBundle\Annotation\UploadableField;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -29,6 +30,7 @@ class Advert
      * @var int
      *
      * @ORM\Column(name="nbChild", type="integer")
+     * @Assert\NotBlank()
      */
     private $nbChild;
     /**
@@ -36,11 +38,7 @@ class Advert
      *
      */
     private $user;
-    /**
-     * *@ORM\OneToOne(targetEntity="Simon\PediBundle\Entity\Planning", cascade={"persist", "remove"})
-     *
-     */
-    private $planning;
+
     /**
      * @var \DateTime
      *
@@ -49,22 +47,18 @@ class Advert
     private $date;
 
     /**
-     *
      * @ORM\Column(name="content", type="text")
+     * @Assert\Length(min=20,
+     *                 max=800,
+     *                 minMessage= "Merci de rentrer une
+     *  description",
+     *                 maxMessage= "Description trop longue")
      */
     private $content;
-    /**
-     * @UploadableField(filename="filename", path="adverts")
-     */
-    private $file;
-    /**
-     * @var string
-     * @ORM\Column(name="filename", type="string", length=255)
-     */
-    private $filename;
-   
-    
-    
+
+
+
+
     public function __construct()
     {
         $this->date = new \Datetime();
@@ -177,30 +171,7 @@ class Advert
         return $this->user;
     }
 
-    /**
-     * Set planning
-     *
-     * @param \Simon\PediBundle\Entity\Planning $planning
-     *
-     * @return Advert
-     */
-    public function setPlanning(\Simon\PediBundle\Entity\Planning $planning = null)
-    {
-        $this->planning = $planning;
-
-        return $this;
-    }
-
-    /**
-     * Get planning
-     *
-     * @return \Simon\PediBundle\Entity\Planning
-     */
-    public function getPlanning()
-    {
-        return $this->planning;
-    }
-
+    
     /**
      * Set filename
      *
@@ -224,7 +195,7 @@ class Advert
     {
         return $this->filename;
     }
-    
+
     /**
      * @return File|null
      */
@@ -240,6 +211,6 @@ class Advert
     {
         $this->file = $file;
     }
-    
-    
+
+
 }
