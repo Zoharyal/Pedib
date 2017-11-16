@@ -253,7 +253,7 @@ class User extends BaseUser
         return $this->isAdmin;
     }
 
-  
+
     /**
      * Set address
      *
@@ -278,30 +278,7 @@ class User extends BaseUser
         return $this->address;
     }
 
-    /**
-     * Set planning
-     *
-     * @param \Simon\PediBundle\Entity\Planning $planning
-     *
-     * @return User
-     */
-    public function setPlanning(\Simon\PediBundle\Entity\Planning $planning = null)
-    {
-        $this->planning = $planning;
-
-        return $this;
-    }
-
-    /**
-     * Get planning
-     *
-     * @return \Simon\PediBundle\Entity\Planning
-     */
-    public function getPlanning()
-    {
-        return $this->planning;
-    }
-
+  
 
     public function addRole($role)
     {
