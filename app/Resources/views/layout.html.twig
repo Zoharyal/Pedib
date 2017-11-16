@@ -37,12 +37,9 @@
                                 {% if app.user.hasAdvert == 1  %}
                                 <li><a href="{{path('adminview')}}">Votre annonce</a></li>
                                 {% endif %}
-                                {% if app.user.planning != null %}
-                                <li><a href="{{path('planning', {id: app.user.planning.id})}}">Votre planning</a></li>
-                                {% endif %}
                                 <li><a href="{{path('fos_user_profile_show')}}">Profil</a></li>
                                 <li><a href="{{path('fos_user_security_logout')}}">Log out</a></li>
-                            </ul>    
+                            </ul>
                         </li>
                         {%else%}
                         <li>
@@ -52,14 +49,14 @@
                         </li>
                     {%endif%}
                         </ul>
-                    </div>  
+                    </div>
                 </div>
             <!-- container -->
         </nav>
         <div id="content">{% block content %}{% endblock %}
             {% block fos_user_content %}{% endblock fos_user_content %}
              </div>
-       
+
         </div>
         <!-- SCRIPT -->
          <script src="{{asset('/lib/js/jquery-3.2.1.min.js')}} "></script>

@@ -12,18 +12,10 @@
                 <p> Contact : {{ advert.user.email }} / {{ advert.user.phone }}</p>
                 <h4> Description : </h4>
                 <p> {{advert.content}} </p>
-                {% if is_granted('ROLE_USER') %}
-                {% if app.user.planningday == null %}
-                <button type="button" class="btn btn-primary"><a href="{{path('planningsub', {id:advert.planning.id})}}" class="view">Inscription Planning</a></button>
-                {% elseif app.user.planning.id != advert.planning.id %}
-                <p><b>Vous participez déjà un planning</b>
-                <p>Rendez vous <a href= "{{path('planning', {id: app.user.planning.id})}}"> ici</a> pour voir votre planning</p>
-                {% else %}
-                <button type="button" class="btn btn-info"><a href="{{path('planning', {id:app.user.planning.id})}}" class="view">Voir votre planning</a></button>
-                {% endif %}
-                {% else %}
+                
+
                 <p> Vous devez vous <button type="button" class="btn btn-success"><a href="{{path('fos_user_security_login')}}" class="view">connecter</a></button> </p>
-                {% endif %}
+
             </div>
         </div>
     </div>
